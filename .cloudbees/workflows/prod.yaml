@@ -8,7 +8,7 @@ jobs:
     steps:
       - uses: cloudbees-io/register-deployed-artifact@v2
         with:
-          labels: VulnerableGoRepo4GHTest
+          labels: VulnGo4GHTest
           artifact-id: 3c15671d-e545-475b-9e6d-6501d26e33d4
           target-environment: Pre-Prod
       - uses: cloudbees-io/register-deployed-artifact@v2
