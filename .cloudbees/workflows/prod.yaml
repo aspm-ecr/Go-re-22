@@ -13,6 +13,11 @@ jobs:
           target-environment: Pre-Prod
       - uses: cloudbees-io/register-deployed-artifact@v2
         with:
+          labels: Vuln4gh
+          artifact-id: 0db705f0-c5a9-440f-8852-bd14066e5130
+          target-environment: Pre-Prod
+      - uses: cloudbees-io/register-deployed-artifact@v2
+        with:
           labels: prodvuln
           artifact-id: 1f317202-3fb5-4033-b8a1-0dec14b11f31
           target-environment: Pre-Prod
