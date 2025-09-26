@@ -2,7 +2,7 @@ apiVersion: automation.cloudbees.io/v1alpha1
 kind: workflow
 name: prod
 on:
-  workflow_dispatch:
+  workflow_dispatch: 
 jobs:
   deploy:
     steps:
