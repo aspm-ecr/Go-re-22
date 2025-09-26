@@ -8,11 +8,6 @@ jobs:
     steps:
       - uses: cloudbees-io/register-deployed-artifact@v2
         with:
-          labels: VulnGo4GHTest
-          artifact-id: 7428cbba-f4ef-4dec-ba3a-17558223be05
-          target-environment: Pre-Prod
-      - uses: cloudbees-io/register-deployed-artifact@v2
-        with:
           labels: nodes
           artifact-id: 8a7eb3a5-6720-48e1-a883-beafbd23ad12
           target-environment: Pre-Prod
