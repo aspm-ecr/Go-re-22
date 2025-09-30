@@ -20,4 +20,4 @@ jobs:
         with:
           labels: jo
           artifact-id: 9bf5b3ae-6b58-48c6-9339-61f0d8f28a0e
-          target-environment: Pre-Prod
+          target-environment: Pre-Prod 
