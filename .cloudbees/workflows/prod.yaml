@@ -4,7 +4,7 @@ name: prod
 on:
   workflow_dispatch:   
 jobs:
-  deploy:
+  deploy: 
     steps:
       - uses: cloudbees-io/register-deployed-artifact@v2
         with:
