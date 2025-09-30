@@ -8,11 +8,6 @@ jobs:
     steps:
       - uses: cloudbees-io/register-deployed-artifact@v2
         with:
-          labels: nodes
-          artifact-id: 8a7eb3a5-6720-48e1-a883-beafbd23ad12
-          target-environment: Pre-Prod
-      - uses: cloudbees-io/register-deployed-artifact@v2
-        with:
           labels: Vuln4gh
           artifact-id: 0db705f0-c5a9-440f-8852-bd14066e5130
           target-environment: Pre-Prod
@@ -25,9 +20,4 @@ jobs:
         with:
           labels: jo
           artifact-id: 618ba3c7-c069-40fd-afcb-1f07623be1a6
-          target-environment: Pre-Prod
-      - uses: cloudbees-io/register-deployed-artifact@v2
-        with:
-          labels: nodejasaspm
-          artifact-id: 0004e609-ba1a-45d0-8870-cfb2f9138bdf
           target-environment: Pre-Prod
