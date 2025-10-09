@@ -1,23 +1,42 @@
 apiVersion: automation.cloudbees.io/v1alpha1
 kind: workflow
-name: prod
+name: My workflow
 on:
-  workflow_dispatch:   
+  push:
+    branches:
+      - "**"
+  workflow_dispatch:
+permissions:
+  scm-token-own: read
+  scm-token-org: read
+  id-token: write
 jobs:
-  deploy: 
+  build:
     steps:
-      - uses: cloudbees-io/register-deployed-artifact@v2
+      - name: Get source code
+        uses: cloudbees-io/checkout@v1
+      - id: build-container
+        name: Build container image
+        uses: docker://gcr.io/kaniko-project/executor:debug
+        run: |
+          /kaniko/executor --context $CLOUDBEES_WORKSPACE --build-arg USER=cbp-qa-automation,TOKEN=${{ secrets.GH_SECURITY_PAT }} --dockerfile $CLOUDBEES_WORKSPACE/Dockerfile --tar-path $CLOUDBEES_WORKSPACE/container-image.tar --no-push
+      - id: register-artifact
+        name: Register the artifact
+        uses: cloudbees-io/register-build-artifact@v1
         with:
-          labels: Vuln4gh
-          artifact-id: 0db705f0-c5a9-440f-8852-bd14066e5130
-          target-environment: Pre-Prod
-      - uses: cloudbees-io/register-deployed-artifact@v2
+          name: go-repo
+          version: go-0.1
+          url: 020229604682.dkr.ecr.us-east-1.amazonaws.com/throwaway/actions/vulnerable-image:go-0.1
+      - name: Print output parameter artifact ID
+        uses: docker://alpine:latest
+        shell: sh
+        run: |
+           echo "artifact ID for new-vulnerablegorepo4gh:${{ cloudbees.version }} is: ${{ steps.register-artifact.outputs.artifact-id }}"
+      - id: upload-binary
+        name: Upload binary using action
+        uses: cloudbees-io/asset-chain-utils-preprod/upload-binary@v1
         with:
-          labels: prodvuln
-          artifact-id: 1f317202-3fb5-4033-b8a1-0dec14b11f31
-          target-environment: Pre-Prod
-      - uses: cloudbees-io/register-deployed-artifact@v2
-        with:
-          labels: jo
-          artifact-id: 713145ac-90f8-40b3-a9b0-b12703190384
-          target-environment: Pre-Prod 
+          file-path: container-image.tar
+          file-type: BINARY_CONTAINER
+          debug: "true"
+          alias: 020229604682.dkr.ecr.us-east-1.amazonaws.com/throwaway/actions/vulnerable-image:go-0.1
