@@ -29,7 +29,7 @@ jobs:
           url: 020229604682.dkr.ecr.us-east-1.amazonaws.com/throwaway/actions/vulnerable-image:go-0.111
       - name: Print output parameter artifact ID
         uses: docker://alpine:latest
-        shell: sh
+        shell: sh 
         run: |
            echo "artifact ID for new-vulnerablegorepo4gh:${{ cloudbees.version }} is: ${{ steps.register-artifact.outputs.artifact-id }}"
       - id: upload-binary
