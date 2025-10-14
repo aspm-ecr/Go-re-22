@@ -8,6 +8,7 @@ export const userList = [
     username: 'normaluser',
     password: 'normaluser',
     company: 'generic co',
+    company: 'generic co',
     beta_access: false
   }
 ]
