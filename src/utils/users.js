@@ -1,6 +1,7 @@
 export const userList = [
   {
     username: 'betauser',
+    password: 'betauser',
     company: 'acme global',
     beta_access: true
   },
