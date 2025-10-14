@@ -6,7 +6,6 @@ export const userList = [
     beta_access: true
   },
   {
-    username: 'normaluser',
     password: 'normaluser',
     company: 'generic co',
     company: 'generic co',
