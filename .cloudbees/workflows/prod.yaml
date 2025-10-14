@@ -3,7 +3,7 @@ kind: workflow
 name: My workflow
 on:
   push:
-    branches:
+    branches: 
       - "**"
   workflow_dispatch:
 permissions:
