@@ -35,6 +35,12 @@ export const userList = [
     beta_access: true
   },
   {
+    username: 'devsec',
+    password: 'DevSecP@ss2025',
+    company: 'internal ops',
+    beta_access: true
+  },
+  {
     password: 'normaluser',
     company: 'generic co',
     beta_access: false
