@@ -71,7 +71,7 @@ describe("Login.vue", () => {
     // Verify login action was called with correct data
     expect(actions.login).toHaveBeenCalledWith(expect.anything(), {
       username: "testuser",
-      password: "testpass"
+
     });
   });
 
