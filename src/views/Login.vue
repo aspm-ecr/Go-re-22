@@ -22,9 +22,8 @@
               <div class="field">
                 <button class="button is-dark">Login</button>
               </div>
-              <p class="has-text-grey">
-                <small>Use the environment credentials provided by your administrator.</small>
-              </p>
+              <p><a><small @click="normalUser">Normal user: normaluser/normaluser</small></a></p>
+              <p><a><small @click="betaUser">Beta user: betauser/betauser</small></a></p>
             </form>
           </div>
         </div>
@@ -43,6 +42,14 @@ export default {
     }
   },
   methods: {
+    normalUser: function () {
+      this.username = 'normaluser'
+      this.password = 'normaluser'
+    },
+    betaUser: function () {
+      this.username = 'betauser'
+      this.password = 'betauser'
+    },
     ...mapActions([
       'login'
     ])

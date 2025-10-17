@@ -37,12 +37,11 @@ describe("Login.vue", () => {
     expect(getByRole("button", { name: "Login" })).toBeTruthy();
   });
 
-  it("shows guidance for obtaining credentials", () => {
+  it("shows helper links for test accounts", () => {
     const { getByText } = renderLogin();
 
-    expect(
-      getByText("Use the environment credentials provided by your administrator.")
-    ).toBeTruthy();
+    expect(getByText("Normal user: normaluser/normaluser")).toBeTruthy();
+    expect(getByText("Beta user: betauser/betauser")).toBeTruthy();
   });
 
   it("allows user input in form fields", async () => {
@@ -73,6 +72,24 @@ describe("Login.vue", () => {
       username: "testuser",
       password: "testpass"
     });
+  });
+
+  it("fills in normal user credentials when helper link is clicked", async () => {
+    const { getByText, getByLabelText } = renderLogin();
+
+    await fireEvent.click(getByText("Normal user: normaluser/normaluser"));
+
+    expect(getByLabelText("Username").value).toBe("normaluser");
+    expect(getByLabelText("Password").value).toBe("normaluser");
+  });
+
+  it("fills in beta user credentials when helper link is clicked", async () => {
+    const { getByText, getByLabelText } = renderLogin();
+
+    await fireEvent.click(getByText("Beta user: betauser/betauser"));
+
+    expect(getByLabelText("Username").value).toBe("betauser");
+    expect(getByLabelText("Password").value).toBe("betauser");
   });
 
   it("requires username and password fields", () => {
