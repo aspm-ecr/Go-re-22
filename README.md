@@ -105,3 +105,13 @@ Testing at 14:11:35 UTC:
 - Verifying if webhook/DSL engine issue or systemic problem
 
 <!-- Immediate retry - Wed Oct 22 14:11:35 UTC 2025 -->
+
+Run #13: Post-investigation push after race condition analysis
+
+Testing at $(date -u +"%Y-%m-%d %H:%M:%S") UTC:
+- Run #11 and #12 did not trigger workflows (pushed 13:59 and 14:11 UTC)
+- Race condition stabilized (no id_mapping errors since 14:00 UTC)
+- 200+ workflows lost events during 11:00-16:00 UTC window
+- Verifying if webhook/DSL engine recovered
+
+<!-- Test commit - $(date -u) -->
