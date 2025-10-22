@@ -95,3 +95,13 @@ Testing after confirming:
 This push verifies whether PreProd run-service race condition is resolved.
 
 <!-- Test commit - Wed Oct 22 13:59:29 UTC 2025 -->
+
+
+Run #12: Immediate retry after Run #11 did not trigger
+
+Testing at 14:11:35 UTC:
+- Run #11 pushed 13:59 UTC - no workflow triggered after 10+ minutes
+- Race condition stabilized (no id_mapping failures in 15+ min window)
+- Verifying if webhook/DSL engine issue or systemic problem
+
+<!-- Immediate retry - Wed Oct 22 14:11:35 UTC 2025 -->
