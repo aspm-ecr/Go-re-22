@@ -69,3 +69,5 @@ npm run test:unit
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
+
+<!-- Test commit to verify linkage resolution - Wed Oct 22 12:55:08 CEST 2025 -->
