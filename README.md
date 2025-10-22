@@ -83,3 +83,15 @@ Testing after confirming:
 - Auto-creation code working (verified with component 09314ed6)
 
 This push verifies whether asset-scan 404 issue is resolved.
+Run #11: Race condition verification after id_mapping failure investigation
+
+Testing after confirming:
+- 200+ workflows affected by id_mapping race condition (Oct 22, 11:00-16:00 UTC)
+- Run #10 (11:44 UTC) hit during peak failure period (183 failures at 11:00 UTC)
+- Events permanently dropped by run-service after 7 NACK retries
+- Database linkage verified correct in Postgres
+- Auto-creation working for other components (09314ed6)
+
+This push verifies whether PreProd run-service race condition is resolved.
+
+<!-- Test commit - Wed Oct 22 13:59:29 UTC 2025 -->
