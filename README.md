@@ -126,3 +126,17 @@ Testing at $(date -u +"%H:%M:%S") UTC:
 
 <!-- Test commit - $(date -u +"%Y-%m-%d %H:%M:%S") UTC -->
 
+
+
+Run #16: Post-race-condition-analysis push (Oct 23)
+
+Testing after confirming Run #14 and #15 both hit the same race condition:
+- Both workflows completed successfully in CloudBees UI
+- Both hit run-service id_mapping race (NACK after 20 retries)
+- Events permanently dropped from NATS
+- No asset-service logs (zero events received)
+- PR #764 awaiting merge to fix the race
+
+This push verifies current PreProd status.
+
+<!-- Test commit - $(date -u +"%Y-%m-%d %H:%M:%S") UTC -->
