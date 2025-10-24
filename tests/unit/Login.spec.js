@@ -51,8 +51,7 @@ describe("Login.vue", () => {
     const usernameInput = getByLabelText("Username");
     const passwordInput = getByLabelText("Password");
     const username = "testuser";
-    const password =
-      process.env.VUE_APP_LOGIN_PASSWORD ?? "user-input-placeholder";
+    const password = process.env.VUE_APP_LOGIN_PASSWORD ?? "";
 
     await fireEvent.update(usernameInput, username);
     await fireEvent.update(passwordInput, password);
@@ -66,8 +65,7 @@ describe("Login.vue", () => {
 
     // Fill in the form
     const username = "testuser";
-    const password =
-      process.env.VUE_APP_LOGIN_PASSWORD ?? "user-input-placeholder";
+    const password = process.env.VUE_APP_LOGIN_PASSWORD ?? "";
 
     await fireEvent.update(getByLabelText("Username"), username);
     await fireEvent.update(getByLabelText("Password"), password);
