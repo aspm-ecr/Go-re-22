@@ -141,7 +141,3 @@ This push verifies current PreProd status.
 
 <!-- Test commit - $(date -u +"%Y-%m-%d %H:%M:%S") UTC -->
 \nTrigger workflow run #16 - verify automation status mapping 2025-10-24T05:24:16Z
-
-## Temporary test secret
-
-AWS_SECRET_ACCESS_KEY=FAKESECRET1234567890FORTESTING
