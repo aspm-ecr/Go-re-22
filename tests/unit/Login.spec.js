@@ -50,28 +50,35 @@ describe("Login.vue", () => {
 
     const usernameInput = getByLabelText("Username");
     const passwordInput = getByLabelText("Password");
+    const username = "testuser";
+    const password =
+      process.env.VUE_APP_LOGIN_PASSWORD ?? "user-input-placeholder";
 
-    await fireEvent.update(usernameInput, "testuser");
-    await fireEvent.update(passwordInput, "testpass");
+    await fireEvent.update(usernameInput, username);
+    await fireEvent.update(passwordInput, password);
 
-    expect(usernameInput.value).toBe("testuser");
-    expect(passwordInput.value).toBe("testpass");
+    expect(usernameInput.value).toBe(username);
+    expect(passwordInput.value).toBe(password);
   });
 
   it("calls login action with form data when submitted", async () => {
     const { getByLabelText, getByRole } = renderLogin();
 
     // Fill in the form
-    await fireEvent.update(getByLabelText("Username"), "testuser");
-    await fireEvent.update(getByLabelText("Password"), "testpass");
+    const username = "testuser";
+    const password =
+      process.env.VUE_APP_LOGIN_PASSWORD ?? "user-input-placeholder";
+
+    await fireEvent.update(getByLabelText("Username"), username);
+    await fireEvent.update(getByLabelText("Password"), password);
 
     // Submit the form
     await fireEvent.click(getByRole("button", { name: "Login" }));
 
     // Verify login action was called with correct data
     expect(actions.login).toHaveBeenCalledWith(expect.anything(), {
-      username: "testuser",
-
+      username,
+      password,
     });
   });
 
