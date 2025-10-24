@@ -45,5 +45,4 @@ jobs:
         uses: cloudbees-io/register-deployed-artifact@v2
         with:
           artifact-id: ${{ steps.register-artifact.outputs.artifact-id }}
-          target-environment: ecr-qa
-          record-deployment: "true"
+          target-environment: b413b2da-8da9-4a6b-990f-717c555685b1
